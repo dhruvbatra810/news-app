@@ -1,7 +1,7 @@
 import React from 'react'
 import Newstredning  from './newstrending';
 import Newssearch from './newssearch'
-import {BrowserRouter as Router, Route,Switch} from "react-router-dom"
+import {BrowserRouter as Router, Link, Route,Routes} from "react-router-dom"
 import Leftside  from './leftside';
  const  App = () => {
   //  const value = Newssearch('footbal','Month',15)
@@ -10,11 +10,13 @@ import Leftside  from './leftside';
     <>
     <Router>
       <Leftside></Leftside>
-      <Switch>
-      <Route exact path="/"><Newstredning ></Newstredning></Route>
-      <Route exact path ="/:category"> <Newstredning ></Newstredning> <Newssearch></Newssearch>  </Route>     
-      <Route  path ="*"> <h1>there is no page that you want to access</h1></Route>
-      </Switch> 
+       <Newstredning ></Newstredning>
+      <Routes>
+      <Route exact path="/" element={<Newssearch></Newssearch>}>  </Route>
+      <Route exact path ="/:category" element={<Newssearch></Newssearch>}>    </Route>     
+      <Route exact path="/:category/:id" element={ <h1><Link to="/">Home</Link></h1>}></Route>
+      <Route  path ="*" element={<h1>there is no page that you want to access</h1>}> </Route>
+      </Routes> 
     </Router>
     
     </>
