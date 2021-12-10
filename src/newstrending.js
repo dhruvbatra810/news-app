@@ -1,19 +1,20 @@
 import React,{useEffect,useState} from 'react'
 import useNewstrendingapi from './useNewstrendingapi'
+import trendingarray from './trendingarray';
+import {Link} from "react-router-dom"
 const Newstreding = () => {
   
     // console.log(getquery)
-    const getquery = useNewstrendingapi();
-    console.log(getquery)
+    useNewstrendingapi();
+   
     return (
         
         <div>
             <h1>Trending news</h1>
             {
-            
-             getquery.map((v)=>{
+             trendingarray.map((v)=>{
                  return (
-                     <p>{v.name}</p>
+                     <p key={v.id}>{v.name} <Link to=""></Link></p>
                  )
              })
             }

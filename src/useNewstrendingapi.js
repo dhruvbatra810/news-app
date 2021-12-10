@@ -1,5 +1,14 @@
 import {useEffect,useState} from 'react'
+import  trendingarray  from './trendingarray';
 
+function AppendArray(arr1, arr2){
+  const  l1 = arr1.length;
+    const l2 = arr2.length;
+    for (let i=0 ; i<l2 ;i++){
+    	arr1[i] = {...arr2[i] , id: i};
+    }
+    return arr1;
+}
 const useNewstrendingapi = () => {
       const [getquery,setquery] = useState([]);
     useEffect(()=>{
@@ -19,7 +28,9 @@ const useNewstrendingapi = () => {
 	console.error(err);
 });
     },[])
-    return getquery;
+	AppendArray(trendingarray,getquery)
+	console.log(trendingarray)
+    return ;
 }
 
 export default useNewstrendingapi

@@ -1,13 +1,20 @@
 import React,{useState,useEffect} from 'react'
 import { useParams } from 'react-router-dom';
+import  searcharray  from './searcharray';
 
-
+function AppendArray(arr1, arr2){
+  const  l1 = arr1.length;
+    const l2 = arr2.length;
+    for (let i=0 ; i<l2 ;i++){
+    	arr1[i] = {...arr2[i] , id: i};
+    }
+    return arr1;
+}
  const useNewssearchapi = () => {
-//         const queryParams = new URLSearchParams(window.location.search);
-// const param1 = queryParams.get('category');
-// console.log(param1) // 55 test null
-  const param1 = useParams().category;
 
+  let param1 = (useParams().category)  ;
+  param1 = (param1 ?param1:'india');
+    console.log(typeof param1)
      const [getquery,setquery] = useState([]);
 
     const url = `https://bing-news-search1.p.rapidapi.com/news/search?q=${param1}&count=60&freshness=Day&textFormat=Raw&safeSearch=Off`
@@ -27,9 +34,11 @@ import { useParams } from 'react-router-dom';
 .catch(err => {
 	console.error(err);
 });
-    },[])
+    },[param1])
+    AppendArray(searcharray,getquery);
+    // console.log(searcharray)
     return (
-        {param1,getquery}
+        {param1}
     );
 }
 
