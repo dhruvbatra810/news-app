@@ -16,7 +16,7 @@ import Searchit from './searchit';
       <Routes>
       <Route exact path="/" element={<Newssearch></Newssearch>}>  </Route>
       <Route exact path ="/:category" element={<Newssearch></Newssearch>}>    </Route>     
-      <Route exact path="/:category/:id" element={ <h1><Link to="/">Home</Link></h1>}></Route>
+      <Route exact path="/:category/:id" element={ <h1><Link to="/">Home</Link></h1> }></Route>
       <Route  path ="*" element={<h1>there is no page that you want to access</h1>}> </Route>
       </Routes> 
     </Router>
