@@ -3,6 +3,7 @@ import Newstredning  from './newstrending';
 import Newssearch from './newssearch'
 import {BrowserRouter as Router, Link, Route,Routes} from "react-router-dom"
 import Leftside  from './leftside';
+import Searchit from './searchit';
  const  App = () => {
   //  const value = Newssearch('footbal','Month',15)
   //  console.log(value)
@@ -10,6 +11,7 @@ import Leftside  from './leftside';
     <>
     <Router>
       <Leftside></Leftside>
+      <Searchit></Searchit>
        <Newstredning ></Newstredning>
       <Routes>
       <Route exact path="/" element={<Newssearch></Newssearch>}>  </Route>

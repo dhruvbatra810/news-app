@@ -14,7 +14,10 @@ const Newstreding = () => {
             {
              trendingarray.map((v)=>{
                  return (
-                     <p key={v.id}>{v.name} <Link to=""></Link></p>
+                   <div key={v.id}>
+                     <p ><Link to={`/trending/${v.id}`}>{v.name}</Link></p>
+                     
+                    </div>
                  )
              })
             }

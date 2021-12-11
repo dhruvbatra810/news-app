@@ -14,7 +14,7 @@ function AppendArray(arr1, arr2){
 
   let param1 = (useParams().category)  ;
   param1 = (param1 ?param1:'india');
-    console.log(typeof param1)
+    // console.log(typeof param1)
      const [getquery,setquery] = useState([]);
 
     const url = `https://bing-news-search1.p.rapidapi.com/news/search?q=${param1}&count=60&freshness=Day&textFormat=Raw&safeSearch=Off`

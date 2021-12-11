@@ -29,7 +29,7 @@ const useNewstrendingapi = () => {
 });
     },[])
 	AppendArray(trendingarray,getquery)
-	console.log(trendingarray)
+	// console.log(trendingarray)
     return ;
 }
 
