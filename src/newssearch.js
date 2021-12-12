@@ -1,10 +1,10 @@
 import React,{useEffect,useState} from 'react'
 import { useParams,Link } from 'react-router-dom';
 import useNewssearchapi from './useNewssearchapi';
-import searcharray from './searcharray';
-const Newssearch = () => {
 
-    const {param1} = useNewssearchapi();
+const Newssearch = ({wow}) => {
+    const {searcharray,setsearcharray} = wow;
+    const {param1} = useNewssearchapi(setsearcharray);
     // console.log(searcharray)
 
     return (

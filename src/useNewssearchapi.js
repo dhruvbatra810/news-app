@@ -1,16 +1,10 @@
 import React,{useState,useEffect} from 'react'
 import { useParams } from 'react-router-dom';
-import  searcharray  from './searcharray';
 
-function AppendArray(arr1, arr2){
-  const  l1 = arr1.length;
-    const l2 = arr2.length;
-    for (let i=0 ; i<l2 ;i++){
-    	arr1[i] = {...arr2[i] , id: i};
-    }
-    return arr1;
-}
- const useNewssearchapi = () => {
+
+
+
+ const useNewssearchapi = (setsearcharray) => {
 
   let param1 = (useParams().category)  ;
   param1 = (param1 ?param1:'india');
@@ -35,8 +29,15 @@ function AppendArray(arr1, arr2){
 	console.error(err);
 });
     },[param1])
-    AppendArray(searcharray,getquery);
-    // console.log(searcharray)
+    
+//  AppendArray(searcharray,getquery)  // func append calling 
+    // searcharray =getquery
+    useEffect(()=>{  const wow=[];
+    const l1 = getquery.length;
+    for(let i = 0 ;i<l1;i++){
+        wow[i] = {...getquery[i],id:i};
+    }
+    setsearcharray(wow);},[getquery])
     return (
         {param1}
     );

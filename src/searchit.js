@@ -5,6 +5,7 @@ const Searchit = () => {
     const [v,setv] = useState();
     return (
         <div>
+             <h1><Link to="/">Home</Link></h1>
             <form  >
             <input type="text" name="category" value={v} onChange={(e)=> setv(e.target.value)}/>
             </form>
