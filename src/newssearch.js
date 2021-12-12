@@ -5,7 +5,7 @@ import useNewssearchapi from './useNewssearchapi';
 const Newssearch = ({wow}) => {
     const {searcharray,setsearcharray} = wow;
     const {param1} = useNewssearchapi(setsearcharray);
-    // console.log(searcharray)
+    console.log(searcharray)
 
     return (
         <div>

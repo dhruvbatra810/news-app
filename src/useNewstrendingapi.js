@@ -10,10 +10,7 @@ import {useEffect,useState} from 'react'
 //     }
 //     return arr1;
 // }
-function callme (settrendingarray, getquery){
-  
 
-}
 const useNewstrendingapi = (settrendingarray) => {
       const [getquery,setquery] = useState([]);
     useEffect(()=>{
@@ -22,7 +19,7 @@ const useNewstrendingapi = (settrendingarray) => {
 	"headers": {
 		"x-bingapis-sdk": "true",
 		"x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
-		"x-rapidapi-key": "be363280d7msh6efda7e60463665p144fa5jsn95fcb54c10ea"
+		"x-rapidapi-key": "ecc13ea734msh7696172ee3ee217p1f2623jsn06fbaba36072"
 	}
 })
 .then(response => {
@@ -41,6 +38,7 @@ const useNewstrendingapi = (settrendingarray) => {
     for(let i = 0 ;i<l1;i++){
         wow[i] = {...getquery[i],id:i};
     }
+    console.log(getquery)
     settrendingarray(wow);},[getquery])
     // settrendingarray(getquery)
     return ;

@@ -13,12 +13,12 @@ import { useParams } from 'react-router-dom';
 
     const url = `https://bing-news-search1.p.rapidapi.com/news/search?q=${param1}&count=60&freshness=Day&textFormat=Raw&safeSearch=Off`
     useEffect(()=>{
-     fetch(url, {
+    fetch(url, {
 	"method": "GET",
 	"headers": {
 		"x-bingapis-sdk": "true",
 		"x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
-		"x-rapidapi-key": "be363280d7msh6efda7e60463665p144fa5jsn95fcb54c10ea"
+		"x-rapidapi-key": "ecc13ea734msh7696172ee3ee217p1f2623jsn06fbaba36072"
 	}
 })
 .then(response => {
