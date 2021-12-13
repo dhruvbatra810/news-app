@@ -13,13 +13,13 @@ import { useState } from 'react/cjs/react.development';
   const [trendingarray,settrendingarray]= useState([1,2,3]);
   // console.log(trendingarray)
   return (
-    <>
-
-    <Router>
+    <div style={{backgroundColor:'whitesmoke'}}>
+    
+    <Router >
       <Searchit></Searchit>
       <div className='container-fluid'>
        <div className='row'>
-         <div className='col-2 d-none d-lg-block '><Leftside></Leftside></div>
+         <div className='col-2 d-none d-lg-block ' style={{backgroundColor:'whitesmoke'}}> <h3 className='justify-content-center'>Category</h3> <Leftside></Leftside></div>
          <div className='col'>  
         
          {/* <div style={{height:"40rem",overflow:"scroll"}}>       */}
@@ -42,7 +42,7 @@ import { useState } from 'react/cjs/react.development';
       
     </Router>
     
-    </>
+    </div>
   )
 }
 

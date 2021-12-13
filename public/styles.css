@@ -8,5 +8,15 @@ html {
 }
 /* // optional: show position indicator in red  */
 ::-webkit-scrollbar-thumb {
-  background: #ff0000;
+  background: transparent;
+}
+a {
+  color: #0060b6;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #00a0c6;
+  text-decoration: none !important;
+  cursor: pointer;
 }

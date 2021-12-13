@@ -1,0 +1,12 @@
+span {
+  padding: 0.7rem;
+}
+.container {
+  background-color: whitesmoke;
+}
+
+a {
+  color: black;
+  font-size: large;
+  font-weight: 500;
+}
