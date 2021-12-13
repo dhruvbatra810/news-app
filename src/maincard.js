@@ -10,7 +10,7 @@ const Maincard = ({datePublished,description,id,image,name,url,provider}) => {
             <img src={contentUrl} alt="this image is not availabe you know " />
             <h2>{name}</h2>
              <p>{description}</p>
-            {/* <p>{provider[0].name}</p> */}
+            <p>{provider[0].name}</p>
             <a href={url} target="_blank">readmore</a>
             <p>{datePublished}</p>
         </div>

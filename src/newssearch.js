@@ -10,6 +10,7 @@ const Newssearch = ({wow}) => {
     return (
         <div>
             <h1>{( param1)} </h1>
+            <div style={{height:"36rem",overflow:"scroll"}}>
             {
           
              searcharray.length === 0 ? <h1>no result</h1>:
@@ -27,6 +28,7 @@ const Newssearch = ({wow}) => {
              })
 
             }
+            </div>
         
         </div>
     )

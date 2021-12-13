@@ -11,6 +11,7 @@ const Newstreding = ({wow}) => {
         
         <div>
             <h1>Trending news</h1>
+            <div style={{height:"36rem",overflow:"scroll"}}>
             {
              trendingarray.map((v)=>{
                  return (
@@ -21,6 +22,7 @@ const Newstreding = ({wow}) => {
                  )
              })
             }
+            </div>
         </div>
     )
 }
