@@ -9,7 +9,7 @@ const Newssearch = ({wow}) => {
 
     return (
         <div style={{backgroundColor:'whitesmoke'}}>
-            <h1>{( param1)} </h1>
+            <h1><b>{( param1)}</b> </h1>
             <div style={{height:"36rem",overflow:"scroll"}}>
             {
           

@@ -6,6 +6,9 @@ import Leftside  from './leftside';
 import Searchit from './searchit';
 import Openthisnews from './openthisnews';
 import { useState } from 'react/cjs/react.development';
+import Maindisplay from './maindisplay';
+import Maindisplayfornews from './maindisplayfornews';
+export const Context = React.createContext();
  const  App = () => {
   //  const value = Newssearch('footbal','Month',15)
   //  console.log(value)
@@ -25,15 +28,13 @@ import { useState } from 'react/cjs/react.development';
          {/* <div style={{height:"40rem",overflow:"scroll"}}>       */}
       <Routes>
       <Route exact path="/" element={<Navigate to={`/India`}></Navigate>}>  </Route>
-      <Route exact path ="/:category" element={<Newssearch wow={{searcharray,setsearcharray}}></Newssearch> }>   </Route>     
-      <Route exact path="/:category/:id" element={ <Openthisnews wow={{searcharray,trendingarray}}></Openthisnews> }></Route>
+      <Route exact path ="/:category" element={<Maindisplay wow={{searcharray,setsearcharray,trendingarray,settrendingarray}}></Maindisplay> }>   </Route>     
+      <Route exact path="/:category/:id" element={ <Context.Provider value={{searcharray,setsearcharray,trendingarray,settrendingarray}}><Maindisplayfornews></Maindisplayfornews> </Context.Provider> }></Route>
       <Route  path ="*" element={<h1>there is no page that you want to access</h1>}> </Route>
       </Routes> 
       {/* </div> */}
       </div>
-      <div className='col-4 d-none d-md-block'>
-       <Newstredning wow={{trendingarray,settrendingarray}}></Newstredning>
-      </div>
+    
 
       </div>
       </div>
