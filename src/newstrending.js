@@ -10,7 +10,7 @@ const Newstreding = ({wow}) => {
     return (
         
         <div style={{backgroundColor:'whitesmoke'}}>
-            <h1>Trending news</h1>
+            <h1><b>Trending</b> news</h1>
             <div style={{height:"36rem",overflow:"scroll"}}>
             {
              trendingarray.map((v)=>{
