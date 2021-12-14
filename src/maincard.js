@@ -9,9 +9,12 @@ const Maincard = ({datePublished,description,id,image,name,url,provider,about}) 
             const value = useParams().category;
           
     return (
-        <div className='row' style={{backgroundColor:'whitesmoke',overflow:'scroll',height:'41rem'}}>
+        <>
+         <h1><b>{value}</b></h1>
+       
+        <div className='row' style={{backgroundColor:'whitesmoke',overflow:'scroll',height:'37rem'}}>
             <div className='col-12' style={{padding:'2rem'}}>
-            <h3><b>{value}</b></h3>
+           
               <div className='card' style={{width:"100%",backgroundColor:'white',borderRadius:'25px',margin:'1rem' ,maxWidth:'50rem',maxHeight:'30rem'}}> 
                             <img src={ff} alt="" />
                
@@ -25,6 +28,7 @@ const Maincard = ({datePublished,description,id,image,name,url,provider,about}) 
                      <a href={url} style={{margin:'1rem'}} className='text-muted' target="_blank">read more....</a>
                 </div>
             </div>
+             </>
     )
 }
 Maincard.propTypes = {
