@@ -4,13 +4,25 @@ import useNewssearchapi from './useNewssearchapi';
 import './stylefornewssearch.css'
 const Newssearch = ({wow}) => {
     const {searcharray,setsearcharray} = wow;
-    const {param1} = useNewssearchapi(setsearcharray);
-    console.log(searcharray)
+    const [offset,setoffset] = useState(0);
+    const {param1} = useNewssearchapi(setsearcharray,offset,searcharray);
+  
+    useEffect(()=>{
 
+    },[offset])
+    useEffect(()=>{
+        setoffset(0);
+        
+    },[useParams().category])
+    const onScroll = (e) => {
+   const bottom = e.target.scrollHeight - Math.ceil(e.target.scrollTop) -300=== e.target.clientHeight-300;
+    if (bottom) {alert('hiiiiiii'); setoffset(offset+10);}
+
+  };
     return (
         <div style={{backgroundColor:'whitesmoke'}}>
             <h1><b>{( param1)}</b> </h1>
-            <div style={{height:"36rem",overflow:"scroll"}}>
+            <div style={{height:"600px",overflow:"scroll"}} onScroll={onScroll}>
             {
           
              searcharray.length === 0 ? <h1>no result</h1>:

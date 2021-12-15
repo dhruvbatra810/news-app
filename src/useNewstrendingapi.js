@@ -1,25 +1,15 @@
 import {useEffect,useState} from 'react'
 
 
-// function AppendArray(arr1, arr2){
-//     arr1=[];
-//   const  l1 = arr1.length;
-//     const l2 = arr2.length;
-//     for (let i=0 ; i<l2 ;i++){
-//     	arr1[i] = {...arr2[i] , id: i};
-//     }
-//     return arr1;
-// }
-
-const useNewstrendingapi = (settrendingarray) => {
+const useNewstrendingapi = (settrendingarray,trendingarray,offset) => {
       const [getquery,setquery] = useState([]);
     useEffect(()=>{
-        fetch("https://bing-news-search1.p.rapidapi.com/news?safeSearch=Off&textFormat=Raw", {
+        fetch(`https://bing-news-search1.p.rapidapi.com/news?count=10&offset=${offset}&safeSearch=Off&textFormat=Raw`, {
 	"method": "GET",
 	"headers": {
 		"x-bingapis-sdk": "true",
 		"x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
-		"x-rapidapi-key": "ecc13ea734msh7696172ee3ee217p1f2623jsn06fbaba36072"
+		"x-rapidapi-key": "0a5c0ba13dmsh57afe7533bde53bp185479jsn62cb4fd0bb8c"
 	}
 })
 .then(response => {
@@ -29,18 +19,21 @@ const useNewstrendingapi = (settrendingarray) => {
 .catch(err => {
 	console.error(err);
 });
-    },[])
+    },[offset])
 	// AppendArray(trendingarray,getquery)
 	// console.log(trendingarray)
     // callme(settrendingarray,getquery)
     useEffect(()=>{  const wow=[];
     const l1 = getquery.length;
+    const l = trendingarray.length;
+
     for(let i = 0 ;i<l1;i++){
-        wow[i] = {...getquery[i],id:i};
+        wow[i] = {...getquery[i],id:i+l};
     }
-    console.log(getquery)
-    settrendingarray(wow);},[getquery])
+   
+    settrendingarray(e =>[...e,...wow]);},[getquery])
     // settrendingarray(getquery)
+  
     return ;
 }
 

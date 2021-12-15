@@ -13,7 +13,7 @@ export const Context = React.createContext();
   //  const value = Newssearch('footbal','Month',15)
   //  console.log(value)
   const [searcharray,setsearcharray] = useState([]);
-  const [trendingarray,settrendingarray]= useState([1,2,3]);
+  const [trendingarray,settrendingarray]= useState([]);
   // console.log(trendingarray)
   return (
     <div style={{backgroundColor:'whitesmoke'}}>

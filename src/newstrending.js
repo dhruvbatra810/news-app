@@ -1,17 +1,27 @@
-import React,{useEffect,useState} from 'react'
+import React,{useRef, useEffect,useState} from 'react'
 import useNewstrendingapi from './useNewstrendingapi'
 import './stylefornewstrending.css'
 import {Link} from "react-router-dom"
 const Newstreding = ({wow}) => {
     const {trendingarray,settrendingarray} = wow;
-    // console.log(wow.trendingarray)
-    useNewstrendingapi(settrendingarray);
-//    console.log(trendingarray)
+    const [offset,setoffset] =useState(0);
+
+    useNewstrendingapi(settrendingarray,trendingarray,offset);
+    useEffect(()=>{
+
+    },[offset])
+    
+
+   const onScroll = (e) => {
+   const bottom = e.target.scrollHeight - Math.ceil(e.target.scrollTop)-300;
+    if (bottom  === e.target.clientHeight-300 || bottom  === e.target.clientHeight-300+1|| bottom  === e.target.clientHeight-300-1 )  { setoffset(offset+10);}
+  
+  };
     return (
         
         <div style={{backgroundColor:'whitesmoke'}}>
             <h1><b>Trending</b> news</h1>
-            <div style={{height:"36rem",overflow:"scroll"}}>
+            <div style={{height:"600px",overflow:"scroll"}} onScroll={onScroll}>
             {
              trendingarray.map((v)=>{
 
