@@ -1,9 +1,9 @@
 import React,{useRef, useEffect,useState} from 'react'
 import useNewstrendingapi from './useNewstrendingapi'
 import './stylefornewstrending.css'
-import {Link} from "react-router-dom"
+import {Link,useNavigate} from "react-router-dom"
 const Newstreding = ({wow}) => {
-    const {trendingarray,settrendingarray} = wow;
+    const {trendingarray,settrendingarray,v} = wow;
     const [offset,setoffset] =useState(0);
 
     useNewstrendingapi(settrendingarray,trendingarray,offset);
@@ -17,9 +17,33 @@ const Newstreding = ({wow}) => {
     if (bottom  === e.target.clientHeight-300 || bottom  === e.target.clientHeight-300+1|| bottom  === e.target.clientHeight-300-1 )  { setoffset(offset+10);}
   
   };
+const navigate = useNavigate();
+  //sipe 
+  var startingX , startingY , movingX , movingY ;
+  	function touchStart(evt){
+						startingX = evt.touches[0].clientX ;
+						startingY = evt.touches[0].clientY ;
+						}
+						function touchMove(evt){
+						movingX = evt.touches[0].clientX ;
+						movingY = evt.touches[0].clientY ;
+						}
+						function touchEnd(){
+						if(startingX+100 < movingX){
+											 navigate(`/${v}`);
+						} else if(startingX-100 > movingX){
+                           console.log('left');
+												}
+					 
+					 if(startingY+100 < movingY){
+					 						console.log('down');
+					 } else if(startingY-100 > movingY){
+					 						console.log('up');
+					 						}
+						}  
     return (
         
-        <div style={{backgroundColor:'whitesmoke'}}>
+        <div style={{backgroundColor:'whitesmoke'}} onTouchStart={touchStart} onTouchMove={touchMove} onTouchEnd={touchEnd}>
             <h1><b>Trending</b> news</h1>
             <div style={{height:"600px",overflow:"scroll"}} onScroll={onScroll}>
             {

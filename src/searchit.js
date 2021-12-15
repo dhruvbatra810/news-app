@@ -4,8 +4,8 @@ import {Link , Navigate, useNavigate} from "react-router-dom"
 import { Redirect } from 'react-router-dom'
 import Leftside from './leftside'
 
-const Searchit = () => {
-    let [v,setv] = useState('');
+const Searchit = ({wow}) => {
+    const {setv,v}  = wow;
     const navigate = useNavigate();
     const callme = (e)=>{
         e.preventDefault();

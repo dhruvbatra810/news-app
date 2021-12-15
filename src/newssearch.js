@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import { useParams,Link } from 'react-router-dom';
+import { useParams,Link, useNavigate } from 'react-router-dom';
 import useNewssearchapi from './useNewssearchapi';
 import './stylefornewssearch.css'
 const Newssearch = ({wow}) => {
@@ -15,14 +15,44 @@ const Newssearch = ({wow}) => {
         
     },[useParams().category])
     const onScroll = (e) => {
-   const bottom = e.target.scrollHeight - Math.ceil(e.target.scrollTop) -300=== e.target.clientHeight-300;
-    if (bottom) {alert('hiiiiiii'); setoffset(offset+10);}
+   const bottom = e.target.scrollHeight - Math.ceil(e.target.scrollTop) +1000=== e.target.clientHeight+1000;
+    if (bottom) { setoffset(offset+10);}
+
+
+
+
+   //swipe
+   
 
   };
+  const navigate = useNavigate();
+
+ var startingX , startingY , movingX , movingY ;
+						function touchStart(evt){
+						startingX = evt.touches[0].clientX ;
+						startingY = evt.touches[0].clientY ;
+						}
+						function touchMove(evt){
+						movingX = evt.touches[0].clientX ;
+						movingY = evt.touches[0].clientY ;
+						}
+						function touchEnd(){
+						if(startingX+100 < movingX){
+											 console.log('left');
+						} else if(startingX-100 > movingX){
+                            navigate('/trending');
+												}
+					 
+					 if(startingY+100 < movingY){
+					 						console.log('down');
+					 } else if(startingY-100 > movingY){
+					 						console.log('up');
+					 						}
+						}  
     return (
-        <div style={{backgroundColor:'whitesmoke'}}>
+        <div style={{backgroundColor:'whitesmoke'}} onTouchStart={touchStart} onTouchMove={touchMove} onTouchEnd={touchEnd} >
             <h1><b>{( param1)}</b> </h1>
-            <div style={{height:"600px",overflow:"scroll"}} onScroll={onScroll}>
+            <div style={{height:"600px",overflowY:"scroll",overflowX:'hidden'}} onScroll={onScroll}>
             {
           
              searcharray.length === 0 ? <h1>no result</h1>:

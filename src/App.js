@@ -1,7 +1,7 @@
 import React from 'react'
-import Newstredning  from './newstrending';
+import Newstreding  from './newstrending';
 import Newssearch from './newssearch'
-import {BrowserRouter as Router, Link, Navigate, Route,Routes, useParams} from "react-router-dom"
+import {BrowserRouter as Router, Link, Navigate, Route,Routes, useNavigate, useParams} from "react-router-dom"
 import Leftside  from './leftside';
 import Searchit from './searchit';
 import Openthisnews from './openthisnews';
@@ -14,34 +14,42 @@ export const Context = React.createContext();
   //  console.log(value)
   const [searcharray,setsearcharray] = useState([]);
   const [trendingarray,settrendingarray]= useState([]);
+  let [v,setv] = useState('');
   // console.log(trendingarray)
+  
+  
+          const [condition,setcondition] = useState();
   return (
-    <div style={{backgroundColor:'whitesmoke'}}>
+    <div  style={{backgroundColor:'whitesmoke',overflow:'hidden'}}>
+     
     
+  
     <Router >
-      <Searchit></Searchit>
+      {/* <div  */}
+      <Searchit wow={{setv,v}}></Searchit>
       <div className='container-fluid mt-1'>
        <div className='row'>
          <div className='col-2 d-none d-lg-block ' style={{backgroundColor:'whitesmoke'}}> <h3 className='justify-content-center'>Category</h3> <Leftside></Leftside></div>
          <div className='col'>  
         
-         {/* <div style={{height:"40rem",overflow:"scroll"}}>       */}
+         
       <Routes>
       <Route exact path="/" element={<Navigate to={`/India`}></Navigate>}>  </Route>
       <Route exact path ="/:category" element={<Maindisplay wow={{searcharray,setsearcharray,trendingarray,settrendingarray}}></Maindisplay> }>   </Route>     
-      <Route exact path="/:category/:id" element={ <Context.Provider value={{searcharray,setsearcharray,trendingarray,settrendingarray}}><Maindisplayfornews></Maindisplayfornews> </Context.Provider> }></Route>
+      <Route exact path="/:category/:id" element={ <Context.Provider value={{searcharray,setsearcharray,trendingarray,settrendingarray,setv,v}}><Maindisplayfornews></Maindisplayfornews> </Context.Provider> }></Route>
+      <Route path='/trending' element ={<Newstreding wow={{trendingarray,settrendingarray,v}}></Newstreding>}></Route>
       <Route  path ="*" element={<h1>there is no page that you want to access</h1>}> </Route>
       </Routes> 
-      {/* </div> */}
+     
       </div>
     
 
       </div>
       </div>
-      
+      {/* </div> */}
     </Router>
-    
-    </div>
+      </div>
+
   )
 }
 

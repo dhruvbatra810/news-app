@@ -11,7 +11,7 @@ import { useParams } from 'react-router-dom';
     // console.log(typeof param1)
      const [getquery,setquery] = useState([]);
 
-    const url = `https://bing-news-search1.p.rapidapi.com/news/search?q=${param1}&count=15&freshness=Day&textFormat=Raw&offset=${offset}&safeSearch=Off`
+    const url = `https://bing-news-search1.p.rapidapi.com/news/search?q=${param1}&count=40&freshness=Day&textFormat=Raw&offset=${offset}&safeSearch=Off`
     useEffect(()=>{
     fetch(url, {
 	"method": "GET",
