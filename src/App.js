@@ -14,6 +14,7 @@ export const Context = React.createContext();
   //  console.log(value)
   const [searcharray,setsearcharray] = useState([]);
   const [trendingarray,settrendingarray]= useState([]);
+  const [Name,setName] = useState('Not login');
   let [v,setv] = useState('');
   // console.log(trendingarray)
   
@@ -29,7 +30,7 @@ export const Context = React.createContext();
       <Searchit wow={{setv,v}}></Searchit>
       <div className='container-fluid mt-1'>
        <div className='row'>
-         <div className='col-2 d-none d-lg-block ' style={{backgroundColor:'whitesmoke'}}> <h3 className='justify-content-center'>Category</h3> <Leftside></Leftside></div>
+         <div className='col-2 d-none d-lg-block ' style={{backgroundColor:'whitesmoke'}}>  <Leftside Name={Name}></Leftside></div>
          <div className='col'>  
         
          

@@ -30,6 +30,9 @@ const Searchit = ({wow}) => {
               <input type='submit' className='form-control' style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',tabindex:'-1'}}></input>
             </form> </li></ul>
                   </span>
+                  <span className='col-2'>
+                    dropdown for login and bookmarkd
+                  </span>
               </div>
                  
              {/* </nav> */}

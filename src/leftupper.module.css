@@ -1,0 +1,9 @@
+.card {
+  background-color: white;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.cardinner {
+  padding: 1rem;
+}
