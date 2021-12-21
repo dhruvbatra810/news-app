@@ -7,6 +7,8 @@ import Searchit from './searchit';
 import Openthisnews from './openthisnews';
 import { useState } from 'react/cjs/react.development';
 import Maindisplay from './maindisplay';
+import Login from './login';
+import Signup from './Signup';
 import Maindisplayfornews from './maindisplayfornews';
 export const Context = React.createContext();
  const  App = () => {
@@ -15,6 +17,7 @@ export const Context = React.createContext();
   const [searcharray,setsearcharray] = useState([]);
   const [trendingarray,settrendingarray]= useState([]);
   const [Name,setName] = useState('Not login');
+
   let [v,setv] = useState('');
   // console.log(trendingarray)
   
@@ -39,7 +42,10 @@ export const Context = React.createContext();
       <Route exact path ="/:category" element={<Maindisplay wow={{searcharray,setsearcharray,trendingarray,settrendingarray}}></Maindisplay> }>   </Route>     
       <Route exact path="/:category/:id" element={ <Context.Provider value={{searcharray,setsearcharray,trendingarray,settrendingarray,setv,v}}><Maindisplayfornews></Maindisplayfornews> </Context.Provider> }></Route>
       <Route path='/trending' element ={<Newstreding wow={{trendingarray,settrendingarray,v}}></Newstreding>}></Route>
+      <Route path='/login' element={<Login></Login>}></Route>
+      <Route path='/signup' element={<Signup></Signup>}></Route>
       <Route  path ="*" element={<h1>there is no page that you want to access</h1>}> </Route>
+
       </Routes> 
      
       </div>

@@ -31,7 +31,15 @@ const Searchit = ({wow}) => {
             </form> </li></ul>
                   </span>
                   <span className='col-2'>
-                    dropdown for login and bookmarkd
+                    <div className="dropdown">
+  <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i className="far fa-caret-square-down"></i>
+  </button>
+  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <Link className="dropdown-item" to='/ls'>login/signup</Link>
+  
+  </div>
+</div>
                   </span>
               </div>
                  
