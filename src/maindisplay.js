@@ -5,7 +5,7 @@ const Maindisplay = ({wow}) => {
     const {searcharray,setsearcharray,trendingarray,settrendingarray,v} = wow;
     return (
         <div className='row'>
-            <div className='col '>
+            <div className='col col-md '>
                <Newssearch wow={{searcharray,setsearcharray}}></Newssearch>
             </div>
 
