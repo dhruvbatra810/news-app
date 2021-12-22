@@ -1,10 +1,10 @@
 import React from 'react'
 import Leftbotom from './leftbottom';
 import Leftupper from './leftupper';
-const leftside = ({Name}) => {
+const leftside = ({namee}) => {
     return (
         <div>
-            <Leftupper Name={Name}></Leftupper>
+            <Leftupper namee={namee}></Leftupper>
             <h3 className='justify-content-center'>Category</h3>
            <Leftbotom></Leftbotom>
         </div>

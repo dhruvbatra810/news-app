@@ -1,24 +1,34 @@
 import React from 'react'
 import styles from './login_signup.module.css'
-import { Link } from 'react-router-dom'
-import { useState } from 'react/cjs/react.development'
+import { Link, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react/cjs/react.development'
 import axios from 'axios'
 
-const Login = () => {
+const Login = ({setNamee}) => {
     let[name,setname] = useState('');
     let[pass,setpass] = useState('');
-    const login = (e)=>{
+    const navigate = useNavigate();
+      const login = (e)=>{
         e.preventDefault();
         console.log(name, pass);
-        axios({
-            method:'post',
-            url:'https://localhost:3001/login/',
-            data:{
-                User_name:name,
-                password:pass
+           async function getf(){
+            try{
+                const res = await axios.post('http://localhost:3001/login',{
+                    User_name:name,
+                    password:pass
+                });
+                console.log(res);
+                console.log('respone aa gya')
+              setNamee(name);
+                navigate('/');
             }
-        }).then(res => console.log(res)).catch(err => console.log(err));
+            catch(error){
+                console.log("error aa rha hai fir se kya");
+            }
+        }
+        getf();
     }
+  
     return (
         <div className={styles.bb}>
             <div className={styles.loginBox}> <img className={styles.user} src="https://i.ibb.co/yVGxFPR/2.png" style={{height:'100px',width:'100px'}}/>

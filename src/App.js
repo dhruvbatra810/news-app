@@ -16,7 +16,7 @@ export const Context = React.createContext();
   //  console.log(value)
   const [searcharray,setsearcharray] = useState([]);
   const [trendingarray,settrendingarray]= useState([]);
-  const [Name,setName] = useState('Not login');
+  const [namee,setNamee] = useState('Not login');
 
   let [v,setv] = useState('');
   // console.log(trendingarray)
@@ -33,7 +33,7 @@ export const Context = React.createContext();
       <Searchit wow={{setv,v}}></Searchit>
       <div className='container-fluid mt-1'>
        <div className='row'>
-         <div className='col-2 d-none d-lg-block ' style={{backgroundColor:'whitesmoke'}}>  <Leftside Name={Name}></Leftside></div>
+         <div className='col-2 d-none d-lg-block ' style={{backgroundColor:'whitesmoke'}}>  <Leftside namee={namee}></Leftside></div>
          <div className='col'>  
         
          
@@ -42,7 +42,7 @@ export const Context = React.createContext();
       <Route exact path ="/:category" element={<Maindisplay wow={{searcharray,setsearcharray,trendingarray,settrendingarray}}></Maindisplay> }>   </Route>     
       <Route exact path="/:category/:id" element={ <Context.Provider value={{searcharray,setsearcharray,trendingarray,settrendingarray,setv,v}}><Maindisplayfornews></Maindisplayfornews> </Context.Provider> }></Route>
       <Route path='/trending' element ={<Newstreding wow={{trendingarray,settrendingarray,v}}></Newstreding>}></Route>
-      <Route path='/login' element={<Login></Login>}></Route>
+      <Route path='/login' element={<Login setNamee={setNamee}></Login>}></Route>
       <Route path='/signup' element={<Signup></Signup>}></Route>
       <Route  path ="*" element={<h1>there is no page that you want to access</h1>}> </Route>
 

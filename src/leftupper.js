@@ -1,9 +1,9 @@
 import React from 'react'
 import style from './leftupper.module.css'
-const Leftupper = ({Name}) => {
+const Leftupper = ({namee}) => {
     return (
         <div className = {style.card}>
-           <p className={style.cardinner}><b>{Name === 'Not login' ? 'Not login':`welcome ${Name}`}</b></p> 
+           <p className={style.cardinner}><b>{namee === 'Not login' ? 'Not login':`welcome ${namee}`}</b></p> 
         </div>
     )
 }
