@@ -7,6 +7,7 @@ import axios from 'axios'
 const Login = ({setNamee}) => {
     let[name,setname] = useState('');
     let[pass,setpass] = useState('');
+    const[er , seter] = useState(false);
     const navigate = useNavigate();
       const login = (e)=>{
         e.preventDefault();
@@ -24,6 +25,7 @@ const Login = ({setNamee}) => {
             }
             catch(error){
                 console.log("error aa rha hai fir se kya");
+                seter(true);
             }
         }
         getf();
@@ -35,11 +37,12 @@ const Login = ({setNamee}) => {
     <h3>Sign in here</h3>
     <form  >
         <div className={styles.inputBox}> 
-        <input id="uname" type="text" name="Username" placeholder="Username"  value={name} onChange={e => setname(e.target.value)}/>
-         <input id="pass" type="password" name="Password" placeholder="Password" value={pass} onChange={e => setpass(e.target.value) }/> 
+        <input id="uname" type="text" name="Username" placeholder="Username"  value={name} onChange={e => {seter(false);setname(e.target.value)}}/>
+         <input id="pass" type="password" name="Password" placeholder="Password" value={pass} onChange={e => {seter(false);setpass(e.target.value)} }/> 
          </div>
           <input type="submit" onClick={login} name="" value="Login"/>
     </form> 
+    <p style={{color:'red'}} className="text-center"> {er && 'Invalid UserName or password'}</p>
     <Link to='/forgotpass' >forget password</Link>
     <div className="text-center">
         <Link to='/signup' style={{color:'#59238F'}}>Sign-Up</Link>

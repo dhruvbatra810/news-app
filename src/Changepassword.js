@@ -10,18 +10,18 @@ const Changepassword = () => {
    let[name,setname] = useState('');
     let[pass,setpass] = useState('');
     let [em,setem] = useState('');
+        const navigate = useNavigate();
       const signup = (e)=>{
-        
         e.preventDefault();
         console.log(url);
            async function getf(){
             try{
                 const res = await axios.post(url,{
-                    User_name:name,
                     password:pass,
                     email:em,
                 });
                 console.log('respone aa gya');
+                navigate('/login');
             }
             catch(error){
                 console.log(error);
@@ -35,7 +35,6 @@ const Changepassword = () => {
     <h3>update your credentials</h3>
     <form >
         <div className={styles.inputBox}>
-            <input id="uname" type="text" name="Username" placeholder="Username"  value={name} onChange={e => setname(e.target.value)}/>
          <input id="pass" type="password" name="Password" placeholder="Password" value={pass} onChange={e => setpass(e.target.value) }/>
          <input id="pass" type="email" name="email" placeholder="email" value={em} onChange={e => setem(e.target.value) }/>
         </div>

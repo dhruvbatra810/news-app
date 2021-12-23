@@ -6,6 +6,7 @@ const Signup = ({setNamee}) => {
        let[name,setname] = useState('');
     let[pass,setpass] = useState('');
     let [em,setem] = useState('');
+    const [er,seter] = useState(false);
     const navigate = useNavigate();
       const signup = (e)=>{
         e.preventDefault();
@@ -23,7 +24,7 @@ const Signup = ({setNamee}) => {
                 navigate('/');
             }
             catch(error){
-                console.log("error aa rha hai fir se kya");
+               seter(true);
             }
         }
         getf();
@@ -34,12 +35,13 @@ const Signup = ({setNamee}) => {
     <h3>Sigup in here</h3>
     <form >
         <div className={styles.inputBox}>
-            <input id="uname" type="text" name="Username" placeholder="Username"  value={name} onChange={e => setname(e.target.value)}/>
-         <input id="pass" type="password" name="Password" placeholder="Password" value={pass} onChange={e => setpass(e.target.value) }/>
+            <input id="uname" type="text" name="Username" placeholder="Username"  value={name} onChange={e => {seter(false);setname(e.target.value)}}/>
+         <input id="pass" type="password" name="Password" placeholder="Password" value={pass} onChange={e => {seter(false);setpass(e.target.value)} }/>
          <input id="pass" type="email" name="email" placeholder="email" value={em} onChange={e => setem(e.target.value) }/>
         </div>
          <input type="submit" onClick={signup} name="" value="signup"/>
     </form> 
+    <p style={{color:'red'}} className="text-center"> {er && 'UserName already taken'}</p>
     <div className="text-center">
         <Link to='/login'style={{color:'#59238F'}}>Sign-In</Link>
     </div>
