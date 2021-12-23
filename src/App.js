@@ -8,6 +8,8 @@ import Openthisnews from './openthisnews';
 import { useState } from 'react/cjs/react.development';
 import Maindisplay from './maindisplay';
 import Login from './login';
+import Forgotpass from './forgotpass';
+import Changepassword from './Changepassword';
 import Signup from './Signup';
 import Maindisplayfornews from './maindisplayfornews';
 export const Context = React.createContext();
@@ -43,6 +45,8 @@ export const Context = React.createContext();
       <Route path='/trending' element ={<Newstreding wow={{trendingarray,settrendingarray,v}}></Newstreding>}></Route>
       <Route path='/login' element={<Login setNamee={setNamee}></Login>}></Route>
       <Route path='/signup' element={<Signup setNamee={setNamee}></Signup>}></Route>
+      <Route path='/forgotpass' element={<Forgotpass></Forgotpass>}></Route>
+      <Route path='/forgotpass/:id' element={<Changepassword></Changepassword>}></Route>
       <Route  path ="*" element={<h1>there is no page that you want to access</h1>}> </Route>
 
       </Routes> 

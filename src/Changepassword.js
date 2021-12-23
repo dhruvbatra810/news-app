@@ -2,28 +2,29 @@ import React,{useState} from 'react'
 import styles from './login_signup.module.css'
 import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
-const Signup = ({setNamee}) => {
-       let[name,setname] = useState('');
+import { useParams } from 'react-router-dom'
+const Changepassword = () => {
+    const id = useParams().id;
+    const url = 'http://localhost:3001/changepass/61c32c5bd3022aafbd426114';
+    console.log(url);
+   let[name,setname] = useState('');
     let[pass,setpass] = useState('');
     let [em,setem] = useState('');
-    const navigate = useNavigate();
       const signup = (e)=>{
+        
         e.preventDefault();
-        console.log(name, pass);
+        console.log(url);
            async function getf(){
             try{
-                const res = await axios.post('http://localhost:3001/signup',{
+                const res = await axios.post(url,{
                     User_name:name,
                     password:pass,
-                    email:em
+                    email:em,
                 });
-                console.log(res);
-                console.log('respone aa gya')
-              setNamee(name);
-                navigate('/');
+                console.log('respone aa gya');
             }
             catch(error){
-                console.log("error aa rha hai fir se kya");
+                console.log(error);
             }
         }
         getf();
@@ -31,21 +32,19 @@ const Signup = ({setNamee}) => {
     return (
          <div className={styles.bb}>
             <div className={styles.loginBox}> <img className={styles.user} src="https://i.ibb.co/yVGxFPR/2.png" style={{height:'100px',width:'100px'}}/>
-    <h3>Sigup in here</h3>
+    <h3>update your credentials</h3>
     <form >
         <div className={styles.inputBox}>
             <input id="uname" type="text" name="Username" placeholder="Username"  value={name} onChange={e => setname(e.target.value)}/>
          <input id="pass" type="password" name="Password" placeholder="Password" value={pass} onChange={e => setpass(e.target.value) }/>
          <input id="pass" type="email" name="email" placeholder="email" value={em} onChange={e => setem(e.target.value) }/>
         </div>
-         <input type="submit" onClick={signup} name="" value="signup"/>
+         <input type="submit" onClick={signup} name="" value="submit"/>
     </form> 
-    <div className="text-center">
-        <Link to='/login'style={{color:'#59238F'}}>Sign-In</Link>
-    </div>
+   
 </div>
         </div>
     )
 }
 
-export default Signup
+export default Changepassword
