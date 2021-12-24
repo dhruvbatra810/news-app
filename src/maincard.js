@@ -2,6 +2,7 @@ import React from 'react'
 import { ReactPropTypes } from 'react'
 import PropTypes from 'prop-types'
 import { useParams,Link } from 'react-router-dom';
+import Bookmarks from './Bookmarks';
 
 const Maincard = ({datePublished,description,id,image,name,url,provider,about}) => {
      const {thumbnail} = image || {thumbnail:{contentUrl:"https://cima-afrique.org/cima/images/not-available.png"}};
@@ -20,9 +21,12 @@ const Maincard = ({datePublished,description,id,image,name,url,provider,about}) 
                
                     <h3 >{name}</h3>
                      <ul className='nav'>{about && value!=='trending' && about.map((e)=>{
-                         return  <li  style={{padding:'2px'}}className='nav-item'><Link className='nav-link' to={`/${e.name}`} style={{}} className="badge badge-danger">{e.name}</Link></li>
+                         return  <li  style={{padding:'2px'}}className='nav-item'><Link className='nav-link' to={`/${e.name}`}  className="badge badge-danger">{e.name}</Link></li>
                      })}</ul>
-                    <span className='text-muted'>By &ensp;	<b>{provider[0].name}</b></span>
+                     <span className='row' >
+                    <span className='text-muted col'>By &ensp;	<b>{provider[0].name}</b></span>
+                    <span className='col-1'><Bookmarks description={description} image ={ff} name ={name} url={url} provider={provider} about={about}></Bookmarks> </span>
+                    </span>
                              </div>
                     <h6 style={{margin:'1rem',letterSpacing:'2px'}} className='text-muted'>{description}</h6>
                      <a href={url} style={{margin:'1rem'}} className='text-muted' target="_blank">read more....</a>

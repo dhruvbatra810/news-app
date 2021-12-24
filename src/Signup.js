@@ -19,12 +19,12 @@ const Signup = ({setNamee}) => {
                     email:em
                 });
                 console.log(res);
-                console.log('respone aa gya')
               setNamee(name);
                 navigate('/');
             }
             catch(error){
                seter(true);
+               console.log(error);
             }
         }
         getf();
@@ -37,7 +37,7 @@ const Signup = ({setNamee}) => {
         <div className={styles.inputBox}>
             <input id="uname" type="text" name="Username" placeholder="Username"  value={name} onChange={e => {seter(false);setname(e.target.value)}}/>
          <input id="pass" type="password" name="Password" placeholder="Password" value={pass} onChange={e => {seter(false);setpass(e.target.value)} }/>
-         <input id="pass" type="email" name="email" placeholder="email" value={em} onChange={e => setem(e.target.value) }/>
+         <input id="email" type="email" name="email" placeholder="email" value={em} onChange={e => setem(e.target.value) }/>
         </div>
          <input type="submit" onClick={signup} name="" value="signup"/>
     </form> 

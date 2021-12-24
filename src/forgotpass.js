@@ -16,7 +16,7 @@ const Forgotpass = () => {
                     User_name:name,
                 });
                
-                
+                console.log(res);
             }
             catch(error){
               seter('Invalid UserName');

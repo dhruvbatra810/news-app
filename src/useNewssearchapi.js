@@ -45,7 +45,7 @@ import { useParams } from 'react-router-dom';
     {console.log(offset,"offset");setsearcharray(wow);}
     else
     setsearcharray(e => [...e,...wow]);},[getquery])
-    
+    console.log(getquery);
     return (
         {param1}
     );
