@@ -3,6 +3,7 @@ import styles from './login_signup.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react/cjs/react.development'
 import axios from 'axios'
+import  Cookies from 'js-cookie';
 
 const Login = ({setNamee}) => {
     let[name,setname] = useState('');
@@ -22,6 +23,8 @@ const Login = ({setNamee}) => {
                 console.log('respone aa gya')
               setNamee(name);
                 navigate('/');
+                Cookies.set('User_name' , name);
+                
             }
             catch(error){
                 console.log("error aa rha hai fir se kya");

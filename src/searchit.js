@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react/cjs/react.development'
 import {Link , Navigate, useNavigate, useParams} from "react-router-dom"
 import { Redirect } from 'react-router-dom'
 import Leftside from './leftside'
-
+import Cookies from 'js-cookie'
 const Searchit = ({wow}) => {
     const {setv,v,setNamee,namee}  = wow;
     const navigate = useNavigate();
@@ -17,7 +17,7 @@ const Searchit = ({wow}) => {
     }
   
  const logout = ()=>{
-
+Cookies.remove('User_name')
    navigate('/');
   console.log('not login');
    setNamee('Not login');

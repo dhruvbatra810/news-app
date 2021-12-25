@@ -14,6 +14,7 @@ import Signup from './Signup';
 import Maindisplayfornews from './maindisplayfornews';
 import axios from 'axios';
 import Maindisplayforbookmarksnews from './Maindisplayforbookmarksnews';
+import Cookies from 'js-cookie';
 export const Context = React.createContext();
  const  App = () => {
   //  const value = Newssearch('footbal','Month',15)
@@ -24,6 +25,9 @@ export const Context = React.createContext();
   const [bookmarkarr,setbookmarkarr] = useState([]);
   const [fetchbookmarks,setfetchbookmarks]=useState(0);
   let [v,setv] = useState('');
+  if(namee === 'Not login' && Cookies.get('User_name') !== undefined ){
+    setNamee(Cookies.get('User_name'));
+  } 
           const [condition,setcondition] = useState();
         useEffect(()=>{
           if(namee !== 'Not login' ){

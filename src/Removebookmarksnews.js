@@ -9,7 +9,7 @@ const Removebookmarksnews = ({description ,  image, name , url, provider, about}
    
     const navigate = useNavigate();
     const fun = ()=>{
-        setfetchbookmarks(e=>{ return e+1});
+        
        async function getf(){
             try{
                 const res = await axios.post('http://localhost:3001/removethis',{
@@ -22,6 +22,7 @@ const Removebookmarksnews = ({description ,  image, name , url, provider, about}
                     description:description
                 });
                 console.log(res);
+                setfetchbookmarks(e=>{ return e+1});
                 navigate('/bookmarks');
             
             }

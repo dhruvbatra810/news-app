@@ -9,11 +9,11 @@ const Openbookmarknews = ({image,name,url,about,description,provider}) => {
              <>
          <h1><b>{value}</b></h1>
        
-        <div className='row' style={{backgroundColor:'whitesmoke',overflow:'scroll',height:'37rem'}}>
+        <div className='row' style={{backgroundColor:'whitesmoke',overflow:'scroll',height:'37rem',maxWidth:'50rem'}}>
             <div className='col-12' style={{padding:'2rem'}}>
            
               <div className='card' style={{width:"100%",backgroundColor:'white',borderRadius:'25px',margin:'1rem' ,maxWidth:'50rem',maxHeight:'30rem'}}> 
-                            <img src={image} alt="" />
+                            <img src={image}  style={{maxHeight:'250px'}} alt="" />
                
                     <h3 >{name}</h3>
                      <ul className='nav'>{about && value!=='trending' && about.map((e)=>{
