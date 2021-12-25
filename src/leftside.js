@@ -5,7 +5,7 @@ const leftside = ({namee}) => {
     return (
         <div>
             <Leftupper namee={namee}></Leftupper>
-            <h3 className='justify-content-center'>Category</h3>
+            <h3 className='justify-content-center text-dark' >Category</h3>
            <Leftbotom></Leftbotom>
         </div>
     )

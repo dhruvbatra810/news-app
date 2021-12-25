@@ -40,7 +40,7 @@ Cookies.remove('User_name')
 
                   </span>
                   <span className='col-2'>
-                   <p className='d-block d-lg-none'>{namee}</p>
+                   <p className='d-block d-lg-none text-dark'>{namee}</p>
                     <div className="dropdown">
   <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i className="far fa-caret-square-down"></i>

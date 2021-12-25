@@ -2,8 +2,9 @@
   background-color: white;
   border-radius: 25px;
   text-align: center;
+  margin-top: 2.5rem;
 }
 
 .cardinner {
-  padding: 1rem;
+  padding: 2rem;
 }
