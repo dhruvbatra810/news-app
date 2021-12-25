@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 const Changepassword = () => {
     const id = useParams().id;
-    const url = 'http://localhost:3001/changepass/61c32c5bd3022aafbd426114';
+    const url = `https://backend-for-newsapp.herokuapp.com/changepass/${id}`;
     console.log(url);
    let[name,setname] = useState('');
     let[pass,setpass] = useState('');

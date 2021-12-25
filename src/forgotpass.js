@@ -12,7 +12,7 @@ const Forgotpass = () => {
         seter('check you mail'); 
            async function getf(){
             try{
-                const res = await axios.post('http://localhost:3001/forgotpass',{
+                const res = await axios.post('https://backend-for-newsapp.herokuapp.com/forgotpass',{
                     User_name:name,
                 });
                

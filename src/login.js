@@ -15,7 +15,7 @@ const Login = ({setNamee}) => {
         console.log(name, pass);
            async function getf(){
             try{
-                const res = await axios.post('http://localhost:3001/login',{
+                const res = await axios.post('https://backend-for-newsapp.herokuapp.com/login',{
                     User_name:name,
                     password:pass
                 });

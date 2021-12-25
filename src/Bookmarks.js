@@ -11,7 +11,7 @@ const Bookmarks = ({description ,  image, name , url, provider, about}) => {
         
        async function getf(){
             try{
-                const res = await axios.post('http://localhost:3001/addthis',{
+                const res = await axios.post('https://backend-for-newsapp.herokuapp.com/addthis',{
                    namee :namee,
                     image:image,
                     name:name,

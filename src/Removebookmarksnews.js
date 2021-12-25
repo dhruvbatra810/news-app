@@ -12,7 +12,7 @@ const Removebookmarksnews = ({description ,  image, name , url, provider, about}
         
        async function getf(){
             try{
-                const res = await axios.post('http://localhost:3001/removethis',{
+                const res = await axios.post('https://backend-for-newsapp.herokuapp.com/removethis',{
                    namee :namee,
                     image:image,
                     name:name,

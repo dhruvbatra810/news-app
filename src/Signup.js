@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import styles from './login_signup.module.css'
 import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Cookies from 'js-cookie'
 const Signup = ({setNamee}) => {
        let[name,setname] = useState('');
     let[pass,setpass] = useState('');
@@ -13,13 +14,14 @@ const Signup = ({setNamee}) => {
         console.log(name, pass);
            async function getf(){
             try{
-                const res = await axios.post('http://localhost:3001/signup',{
+                const res = await axios.post('https://backend-for-newsapp.herokuapp.com/signup',{
                     User_name:name,
                     password:pass,
                     email:em
                 });
                 console.log(res);
               setNamee(name);
+               Cookies.set('User_name' , name);
                 navigate('/');
             }
             catch(error){

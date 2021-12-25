@@ -34,7 +34,7 @@ export const Context = React.createContext();
              const getme = async ()=>{
                try{
                  console.log(namee);
-                   const value = await axios.post('http://localhost:3001/bookmarks',{
+                   const value = await axios.post('https://backend-for-newsapp.herokuapp.com/bookmarks',{
                      User_name:namee
                    })
                    setbookmarkarr(value.data);
