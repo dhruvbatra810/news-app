@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react/cjs/react.development'
-import {Link , Navigate, useNavigate} from "react-router-dom"
+import {Link , Navigate, useNavigate, useParams} from "react-router-dom"
 import { Redirect } from 'react-router-dom'
 import Leftside from './leftside'
 
@@ -15,7 +15,10 @@ const Searchit = ({wow}) => {
         navigate(`/${v}`)
         
     }
+  
  const logout = ()=>{
+
+   navigate('/');
   console.log('not login');
    setNamee('Not login');
  }
@@ -46,6 +49,7 @@ const Searchit = ({wow}) => {
     {namee === 'Not login' && <Link className="dropdown-item" to='/login'>login</Link>}
     {namee ==='Not login' &&<Link className="dropdown-item" to='/signup'>signup</Link>}
     {namee !== 'Not login' && <button className="dropdown-item" onClick={logout} >Log out</button>}
+    {namee !== 'Not login' && <Link className='dropdown-item' to='/bookmarks'>Bookmarks</Link>}
   </div>
 </div>
                   </span>

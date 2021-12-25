@@ -1,12 +1,17 @@
 import React from 'react'
 import Newssearch from './newssearch';
 import Newstreding from './newstrending';
+import Maindisplayforbookmarksnews from './Maindisplayforbookmarksnews';
+import { useParams } from 'react-router-dom';
 const Maindisplay = ({wow}) => {
-    const {searcharray,setsearcharray,trendingarray,settrendingarray,v} = wow;
+    const {searcharray,setsearcharray,trendingarray,settrendingarray,v,bookmarkarr} = wow;
+     const value= useParams().category;
+     console.log(value);
     return (
         <div className='row'>
             <div className='col col-md '>
-               <Newssearch wow={{searcharray,setsearcharray}}></Newssearch>
+              {value !== 'bookmarks' && <Newssearch wow={{searcharray,setsearcharray}}></Newssearch>}
+               {value === 'bookmarks' &&  <div className='col'> <Maindisplayforbookmarksnews  wow={{bookmarkarr}}></Maindisplayforbookmarksnews></div>}
             </div>
 
          <div className='col-4 d-none d-md-block'>

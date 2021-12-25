@@ -18,7 +18,7 @@ const Login = ({setNamee}) => {
                     User_name:name,
                     password:pass
                 });
-                console.log(res);
+            
                 console.log('respone aa gya')
               setNamee(name);
                 navigate('/');

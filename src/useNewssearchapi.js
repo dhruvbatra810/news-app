@@ -18,7 +18,7 @@ import { useParams } from 'react-router-dom';
 	"headers": {
 		"x-bingapis-sdk": "true",
 		"x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
-		"x-rapidapi-key": "0a5c0ba13dmsh57afe7533bde53bp185479jsn62cb4fd0bb8c"
+		"x-rapidapi-key": "effab45b9amsh009cb72b5c8b4bap1e4d66jsne83e99bb1fda"
 	}
 })
 .then(response => {

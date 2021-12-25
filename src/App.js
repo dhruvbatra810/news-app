@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Newstreding  from './newstrending';
 import Newssearch from './newssearch'
 import {BrowserRouter as Router, Link, Navigate, Route,Routes, useNavigate, useParams} from "react-router-dom"
@@ -12,6 +12,8 @@ import Forgotpass from './forgotpass';
 import Changepassword from './Changepassword';
 import Signup from './Signup';
 import Maindisplayfornews from './maindisplayfornews';
+import axios from 'axios';
+import Maindisplayforbookmarksnews from './Maindisplayforbookmarksnews';
 export const Context = React.createContext();
  const  App = () => {
   //  const value = Newssearch('footbal','Month',15)
@@ -19,11 +21,29 @@ export const Context = React.createContext();
   const [searcharray,setsearcharray] = useState([]);
   const [trendingarray,settrendingarray]= useState([]);
   const [namee,setNamee] = useState('Not login');
+  const [bookmarkarr,setbookmarkarr] = useState([]);
+  const [fetchbookmarks,setfetchbookmarks]=useState(0);
   let [v,setv] = useState('');
-  // console.log(trendingarray)
-  
-  
           const [condition,setcondition] = useState();
+        useEffect(()=>{
+          if(namee !== 'Not login' ){
+             const getme = async ()=>{
+               try{
+                 console.log(namee);
+                   const value = await axios.post('http://localhost:3001/bookmarks',{
+                     User_name:namee
+                   })
+                   setbookmarkarr(value.data);
+                   console.log('calling',namee,value);
+               }catch(error){
+                  console.log(error);
+               }
+             }
+             getme();
+          }
+          else setbookmarkarr([])
+        },[namee,fetchbookmarks])
+        console.log(bookmarkarr)
   return (
     <div  style={{backgroundColor:'whitesmoke'}}>
      
@@ -40,8 +60,8 @@ export const Context = React.createContext();
          
       <Routes>
       <Route exact path="/" element={<Navigate to={`/India`}></Navigate>}>  </Route>
-      <Route exact path ="/:category" element={<Maindisplay wow={{searcharray,setsearcharray,trendingarray,settrendingarray}}></Maindisplay> }>   </Route>     
-      <Route exact path="/:category/:id" element={ <Context.Provider value={{searcharray,setsearcharray,trendingarray,settrendingarray,setv,v,namee}}><Maindisplayfornews></Maindisplayfornews> </Context.Provider> }></Route>
+      <Route exact path ="/:category" element={<Maindisplay wow={{searcharray,setsearcharray,trendingarray,settrendingarray,namee,v,bookmarkarr}}></Maindisplay> }>   </Route>     
+      <Route exact path="/:category/:id" element={ <Context.Provider value={{searcharray,setsearcharray,trendingarray,settrendingarray,setv,v,namee,setfetchbookmarks,bookmarkarr}}><Maindisplayfornews></Maindisplayfornews> </Context.Provider> }></Route>
       <Route path='/trending' element ={<Newstreding wow={{trendingarray,settrendingarray,v}}></Newstreding>}></Route>
       <Route path='/login' element={<Login setNamee={setNamee}></Login>}></Route>
       <Route path='/signup' element={<Signup setNamee={setNamee}></Signup>}></Route>

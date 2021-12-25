@@ -4,17 +4,18 @@ import './styleforrelatednews.css'
 import { Link } from 'react-router-dom'
 import { Context } from './App'
 const Relatednews = () => {
-    const {searcharray,trendingarray} =  useContext(Context);
-     const take = useParams().category;
+    const {searcharray,trendingarray,bookmarkarr} =  useContext(Context);
+     let take = useParams().category;
      let arr = searcharray
      console.log(take)
-     if(take === 'trending')
-     arr=trendingarray;
+     if(take === 'trending' || take === 'bookmarks')
+    { arr=trendingarray; take = 'trending';}
+
 
     return (
         <div>
              <div style={{backgroundColor:'whitesmoke'}}>
-            <h1><b>Related</b> news</h1>
+            <h1><b>{take}</b> news</h1>
             <div style={{height:"36rem",overflow:"scroll"}}>
             {
              arr.map((v)=>{
