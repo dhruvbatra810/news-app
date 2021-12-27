@@ -20,8 +20,8 @@ const Maincard = ({datePublished,description,id,image,name,url,provider,about}) 
                             <img src={ff} style={{maxHeight:'200px'}} alt="" />
                
                     <h3 >{name}</h3>
-                     <ul className='nav'>{about && value!=='trending' && about.map((e)=>{
-                         return  <li  style={{padding:'2px'}}className='nav-item'><Link className='nav-link' to={`/${e.name}`}  className="badge badge-danger">{e.name}</Link></li>
+                     <ul className='nav'>{about && value!=='trending' && about.map((e,ind)=>{
+                         return  <li  key={ind} style={{padding:'2px'}}className='nav-item'><Link className='nav-link' to={`/${e.name}`}  className="badge badge-danger">{e.name}</Link></li>
                      })}</ul>
                      <span className='row' >
                     <span className='text-muted col'>By &ensp;	<b>{provider[0].name}</b></span>

@@ -31,8 +31,8 @@ const Relatednews = () => {
                      <img src={ff} alt="img not availabe" style={{width:"100%",borderRadius:'25px'}} />
                      <div className='contain'>
                      <h5 style={{marginTop:'1rem'}}><Link className='text-dark'  to={`/${take}/${v.id}`}>{v.name ||"this name is fake"}</Link></h5>
-                     <ul className='nav'>{v.about && take !== 'trending' &&v.about.map((e)=>{
-                         return  <li  style={{padding:'2px'}}className='nav-item'><Link className='nav-link' to={`/${e.name}`} style={{}} className="badge badge-danger">{e.name}</Link></li>
+                     <ul className='nav'>{v.about && take !== 'trending' &&v.about.map((e,ind)=>{
+                         return  <li key={ind}  style={{padding:'2px'}}className='nav-item'><Link className='nav-link' to={`/${e.name}`} style={{}} className="badge badge-danger">{e.name}</Link></li>
                      })}</ul>
                      </div>
                     </div>

@@ -51,8 +51,8 @@ const Maindisplayforbookmarksnews = ({wow}) => {
                          <span className=' col-12 col-sm-6 ' style={{borderRadius:'25px',backgroundColor:'whitesmoke'}}>
                              <div className='card' style={{backgroundColor:"white",width:'100%',borderRadius:'25px',padding:'1rem' }}>
                      <h5><Link className='text-dark'  to={`/bookmarks/${ind}`} >{v.name}</Link></h5>
-                     <ul className='nav'>{v.about && v.about.map((e)=>{
-                         return  <li  style={{padding:'2px'}}className='nav-item'><Link className='nav-link' to={`/${e.name}`} style={{}} className="badge badge-danger">{e.name}</Link></li>
+                     <ul className='nav'>{v.about && v.about.map((e,index)=>{
+                         return  <li key={index} style={{padding:'2px'}}className='nav-item'><Link className='nav-link' to={`/${e.name}`} style={{}} className="badge badge-danger">{e.name}</Link></li>
                      })}</ul>
                              </div>
                          </span>

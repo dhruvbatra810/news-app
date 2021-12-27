@@ -33,7 +33,7 @@ const Bookmarks = ({description ,  image, name , url, provider, about}) => {
     return (
         <>
         {namee!== 'Not login' &&  <i className="fas fa-save" title='save this for later' onClick={ fun}></i>}
-        {namee === 'Not login' && <Link to='/login'><i class="fas fa-sign-in-alt" title="login to save this"></i></Link>}
+        {namee === 'Not login' && <Link to='/login'><i className="fas fa-sign-in-alt" title="login to save this"></i></Link>}
         </>
     )
 }
