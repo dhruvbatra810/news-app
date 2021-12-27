@@ -4,7 +4,7 @@ import useNewssearchapi from './useNewssearchapi';
 import './stylefornewssearch.css'
 
 const Maindisplayforbookmarksnews = ({wow}) => {
-    const {bookmarkarr} = wow;
+    const {bookmarkarr,setv} = wow;
     const param1 = 'Bookmarks';
   const navigate = useNavigate();
   console.log(bookmarkarr.length);
@@ -22,6 +22,7 @@ const Maindisplayforbookmarksnews = ({wow}) => {
 											 console.log('left');
 						} else if(startingX-100 > movingX){
                             navigate('/trending');
+                            setv('bookmarks');
 												}
 					 
 					 if(startingY+100 < movingY){
@@ -52,7 +53,7 @@ const Maindisplayforbookmarksnews = ({wow}) => {
                              <div className='card' style={{backgroundColor:"white",width:'100%',borderRadius:'25px',padding:'1rem' }}>
                      <h5><Link className='text-dark'  to={`/bookmarks/${ind}`} >{v.name}</Link></h5>
                      <ul className='nav'>{v.about && v.about.map((e,index)=>{
-                         return  <li key={index} style={{padding:'2px'}}className='nav-item'><Link className='nav-link' to={`/${e.name}`} style={{}} className="badge badge-danger">{e.name}</Link></li>
+                         return  <li key={index} style={{padding:'2px'}}className='nav-item'><Link className='nav-link' to={`/${e.name}`}  className="badge badge-danger">{e.name}</Link></li>
                      })}</ul>
                              </div>
                          </span>

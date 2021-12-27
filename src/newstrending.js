@@ -31,6 +31,7 @@ const navigate = useNavigate();
 						function touchEnd(){
 						if(startingX+100 < movingX){
 											 navigate(`/${v}`);
+                       console.log(v);
 						} else if(startingX-100 > movingX){
                            console.log('left');
 												}

@@ -64,7 +64,7 @@ export const Context = React.createContext();
          
       <Routes>
       <Route exact path="/" element={<Navigate to={`/India`}></Navigate>}>  </Route>
-      <Route exact path ="/:category" element={<Maindisplay wow={{searcharray,setsearcharray,trendingarray,settrendingarray,namee,v,bookmarkarr}}></Maindisplay> }>   </Route>     
+      <Route exact path ="/:category" element={<Maindisplay wow={{searcharray,setsearcharray,trendingarray,settrendingarray,namee,v,bookmarkarr,setv}}></Maindisplay> }>   </Route>     
       <Route exact path="/:category/:id" element={ <Context.Provider value={{searcharray,setsearcharray,trendingarray,settrendingarray,setv,v,namee,setfetchbookmarks,bookmarkarr}}><Maindisplayfornews></Maindisplayfornews> </Context.Provider> }></Route>
       <Route path='/trending' element ={<Newstreding wow={{trendingarray,settrendingarray,v}}></Newstreding>}></Route>
       <Route path='/login' element={<Login setNamee={setNamee}></Login>}></Route>
