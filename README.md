@@ -6,6 +6,9 @@ front end part is not yet deployed because of breaking due to third parties pack
 
 [yt link demonstrating project](https://www.youtube.com/watch?v=hpZ4DRmMkKk).
 
+## General Idea 
+search news and save particular news for later read
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
