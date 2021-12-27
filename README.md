@@ -1,3 +1,11 @@
+# app-info
+stack used :MERN 
+front end is this and backend part [backend](https://github.com/dhruvbatra810/backendof_newsapp)
+
+front end part is not yet deployed because of breaking due to third parties packages , for backend you can find it in its repo
+
+[yt link demonstrating project](https://www.youtube.com/watch?v=hpZ4DRmMkKk).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
