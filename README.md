@@ -1,4 +1,7 @@
 # app-info
+
+Introducing the News App: your gateway to the latest headlines, effortlessly delivered in a sleek and secure environment. Harnessing the Bing News API, we provide real-time news updates, while robust user authentication and MongoDB ensure data integrity. With a user-friendly interface powered by React components, accessing personalized news has never been easier.
+
 stack used :MERN 
 front end is this and backend part [backend](https://github.com/dhruvbatra810/backendof_newsapp)
 
